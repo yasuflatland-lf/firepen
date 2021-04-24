@@ -11,6 +11,8 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@headlessui/react": "^1.0.0",
+    "@heroicons/react": "^1.0.1",
     "autoprefixer": "^10.2.5",
     "postcss": "^8.2.12",
     "tailwindcss": "^2.1.2"
