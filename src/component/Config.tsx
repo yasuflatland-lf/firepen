@@ -4,13 +4,17 @@ import {
   PlusIcon,
 } from '@heroicons/react/solid';
 
+import {
+  Link
+} from "react-router-dom";
+
 /* This example requires Tailwind CSS v2.0+ */
 const people = [
   {
-    name: 'Jane Cooper',
+    name: 'STUDIO Development',
     title: 'Regional Paradigm Technician',
     department: 'Optimization',
-    role: 'Admin',
+    role: 'XXAKlasdflkjaalkajalsdf8112390adfaf',
     email: 'jane.cooper@example.com',
     image:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
@@ -21,10 +25,10 @@ const people = [
 export default function Config() {
   return (
     <>
-      <main>
-        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <main className="min-w-1/4">
+        <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
           <div className="lg:flex lg:items-center lg:justify-between">
-            <div className="flex lg:mt-0 lg:ml-4">
+            <div className="flex lg:mt-0">
 
               <span className="">
                 <button
@@ -83,12 +87,12 @@ export default function Config() {
                             {person.role}
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a
-                              href="#"
+                            <Link
+                              to="/config-detail"
                               className="text-indigo-600 hover:text-indigo-900"
                             >
                               Edit
-                            </a>
+                            </Link>
                           </td>
                         </tr>
                       ))}

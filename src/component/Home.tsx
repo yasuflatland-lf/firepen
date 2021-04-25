@@ -6,7 +6,7 @@ import ServiceAccountSelector from './ServiceAccountSelector';
 export default function Home() {
   return (
     <>
-      <main className="min-w-375">
+      <main className="min-w-1/4">
         <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
           {/* Replace with your content */}
           {/* /End replace */}
@@ -38,8 +38,10 @@ export default function Home() {
                     <div className="px-4 py-3 bg-gray-50 text-right sm:px-6 flex">
                       <div className="flex-1 min-w-0" />
                       <div className="flex lg:mt-0 min-w-375">
-                        <div className="flex-1 lg:mt-0">
-                          <ServiceAccountSelector />
+                        <div className="flex-1 lg:mt-0 absolute">
+                          <div className="absolute -right-1">
+                            <ServiceAccountSelector />
+                          </div>
                         </div>
                         <div className="flex-1 ml-4 lg:mt-0">
                           <button
@@ -47,10 +49,12 @@ export default function Home() {
                             className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                           >
                             <FireIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
-                            Publish
+                            Run
                           </button>
                         </div>
                       </div>
+
+
 
                     </div>
                   </div>

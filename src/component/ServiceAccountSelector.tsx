@@ -8,19 +8,19 @@ import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 const peopleSa = [
   {
     id: 1,
-    name: 'Wade Cooper',
+    name: 'STUDIO Development',
     avatar:
       'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
   {
     id: 2,
-    name: 'Arlene Mccoy',
+    name: 'STUDIO Staging',
     avatar:
       'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
   {
     id: 3,
-    name: 'Devon Webb',
+    name: 'STUDIO Production',
     avatar:
       'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
   },
@@ -38,7 +38,7 @@ export default function ServiceAccountSelector() {
       {({ open }) => (
         <>
           <div className="relative">
-            <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            <Listbox.Button className="relative min-w-full text-sm w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
               <span className="flex items-center">
                 <span className="ml-3 block truncate">{selected.name}</span>
               </span>
@@ -72,7 +72,6 @@ export default function ServiceAccountSelector() {
                     {({ selected, active }) => (
                       <>
                         <div className="flex items-center">
-                          <img src={person.avatar} alt="" className="flex-shrink-0 h-6 w-6 rounded-full" />
                           <span
                             className={classNames(
                               selected ? 'font-semibold' : 'font-normal',
