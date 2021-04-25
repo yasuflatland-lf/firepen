@@ -10,7 +10,7 @@ import icon from '../../assets/icon.svg';
 
 const navigation = [
   { name: 'Query', href: '/', current: true },
-  { name: 'Configuration', href: '/a', current: false },
+  { name: 'Configuration', href: '/config', current: false },
 ];
 
 function classNames(...classes: string[]) {

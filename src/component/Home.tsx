@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Head from './Head';
+import { FireIcon } from '@heroicons/react/solid';
+import ServiceAccountSelector from './ServiceAccountSelector';
 
 export default function Home() {
   return (
     <>
-      <Head />
-      <main>
-        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <main className="min-w-375">
+        <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
           {/* Replace with your content */}
           {/* /End replace */}
           <div>
@@ -22,25 +22,36 @@ export default function Home() {
                           Query
                         </label>
                         <div className="mt-1">
-                      <textarea
-                        id="about"
-                        name="about"
-                        rows={3}
-                        className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                        placeholder="Type Firestore Query here"
-                        defaultValue={''}
-                      />
+                          <textarea
+                            id="about"
+                            name="about"
+                            rows={3}
+                            className="shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                            placeholder="Type Firestore Query here"
+                            defaultValue={''}
+                          />
                         </div>
                       </div>
 
                     </div>
-                    <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                      <button
-                        type="submit"
-                        className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                      >
-                        Run Query
-                      </button>
+
+                    <div className="px-4 py-3 bg-gray-50 text-right sm:px-6 flex">
+                      <div className="flex-1 min-w-0" />
+                      <div className="flex lg:mt-0 min-w-375">
+                        <div className="flex-1 lg:mt-0">
+                          <ServiceAccountSelector />
+                        </div>
+                        <div className="flex-1 ml-4 lg:mt-0">
+                          <button
+                            type="button"
+                            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                          >
+                            <FireIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
+                            Publish
+                          </button>
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 </form>
@@ -66,14 +77,14 @@ export default function Home() {
                           Result
                         </label>
                         <div className="mt-1">
-                      <textarea
-                        id="about"
-                        name="about"
-                        rows={3}
-                        className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                        placeholder="The result of query is displayed here."
-                        defaultValue={''}
-                      />
+                          <textarea
+                            id="about"
+                            name="about"
+                            rows={3}
+                            className="shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                            placeholder="The result of query is displayed here."
+                            defaultValue={''}
+                          />
                         </div>
                       </div>
 
