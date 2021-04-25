@@ -12,7 +12,7 @@ export default function Home() {
           {/* /End replace */}
           <div>
             <div className="md:grid md:grid-cols-1 md:gap-6">
-              <div className="mt-5 md:mt-0">
+              <div className="mt-5 md:mt-5">
                 <form action="#" method="POST">
                   <div className="shadow sm:rounded-md sm:overflow-hidden">
                     <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
@@ -56,7 +56,7 @@ export default function Home() {
 
           <div>
             <div className="md:grid md:grid-cols-1 md:gap-6">
-              <div className="mt-5 md:mt-0">
+              <div className="mt-5 sm:mt-0">
                 <form action="#" method="POST">
                   <div className="shadow sm:rounded-md sm:overflow-hidden">
                     <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
