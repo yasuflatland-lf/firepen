@@ -15,6 +15,7 @@ import { app, BrowserWindow, shell } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
+import setUtilsListeners from './main/listeners';
 
 export default class AppUpdater {
   constructor() {
@@ -73,7 +74,12 @@ const createWindow = async () => {
     height: 728,
     icon: getAssetPath('icon.png'),
     webPreferences: {
+      // https://www.electronjs.org/docs/tutorial/quick-start#nodejs-api
+      // To access the Node.js API from the Renderer process, you need to set the nodeIntegration preference to true and
+      // the contextIsolation preference to false. Please note that access to the Node.js API in any renderer that loads
+      // remote content is not recommended for security reasons.
       nodeIntegration: true,
+      contextIsolation: false,
     },
   });
 
@@ -130,3 +136,5 @@ app.on('activate', () => {
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) createWindow();
 });
+
+setUtilsListeners(mainWindow);

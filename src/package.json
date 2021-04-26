@@ -9,7 +9,10 @@
     "postinstall": "yarn electron-rebuild"
   },
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "firebase-admin": "^9.6.0",
+    "fs-extra": "^9.1.0"
+  },
   "devDependencies": {
     "@headlessui/react": "^1.0.0",
     "@heroicons/react": "^1.0.1",

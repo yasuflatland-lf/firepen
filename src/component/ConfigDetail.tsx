@@ -3,8 +3,8 @@ import React from 'react';
 // eslint-disable-next-line import/no-duplicates
 import { Fragment, useRef, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import {PlusIcon} from "@heroicons/react/solid";
-import {Link} from "react-router-dom";
+import { PlusIcon } from '@heroicons/react/solid';
+import { Link } from 'react-router-dom';
 
 const people = [
   {
@@ -28,19 +28,14 @@ export default function ConfigDetail() {
     <>
       <main className="min-w-1/4">
         <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
-
           <div className="lg:flex lg:items-center lg:justify-between">
             <div className="flex lg:mt-0">
-
               <span className="">
                 <button
                   type="button"
                   className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  <PlusIcon
-                    className="-ml-1 mr-2 h-5 w-5"
-                    aria-hidden="true"
-                  />
+                  <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
                   Add
                 </button>
               </span>
@@ -53,51 +48,51 @@ export default function ConfigDetail() {
                 <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                   <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
-                    <tr>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Service Account Name
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Service Account Path
-                      </th>
+                      <tr>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
+                          Service Account Name
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
+                          Service Account Path
+                        </th>
 
-                      <th scope="col" className="relative px-6 py-3">
-                        <span className="sr-only">Edit</span>
-                      </th>
-                    </tr>
+                        <th scope="col" className="relative px-6 py-3">
+                          <span className="sr-only">Edit</span>
+                        </th>
+                      </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                    {people.map((person) => (
-                      <tr key={person.email}>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center">
-                            <div className="ml-4">
-                              <div className="text-sm font-medium text-gray-900">
-                                {person.name}
+                      {people.map((person) => (
+                        <tr key={person.email}>
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <div className="flex items-center">
+                              <div className="ml-4">
+                                <div className="text-sm font-medium text-gray-900">
+                                  {person.name}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </td>
+                          </td>
 
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          {person.role}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <Link
-                            to="/config-detail"
-                            className="text-indigo-600 hover:text-indigo-900"
-                          >
-                            Edit
-                          </Link>
-                        </td>
-                      </tr>
-                    ))}
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            {person.role}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <Link
+                              to="/config-detail"
+                              className="text-indigo-600 hover:text-indigo-900"
+                            >
+                              Edit
+                            </Link>
+                          </td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
@@ -128,9 +123,12 @@ export default function ConfigDetail() {
                 </Transition.Child>
 
                 {/* This element is to trick the browser into centering the modal contents. */}
-                <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
-            &#8203;
-          </span>
+                <span
+                  className="hidden sm:inline-block sm:align-middle sm:h-screen"
+                  aria-hidden="true"
+                >
+                  &#8203;
+                </span>
                 <Transition.Child
                   as={Fragment}
                   enter="ease-out duration-300"
@@ -144,7 +142,10 @@ export default function ConfigDetail() {
                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                       <div className="grid grid-cols-6 gap-6">
                         <div className="col-span-6">
-                          <label htmlFor="street_address" className="block text-sm font-medium text-gray-700">
+                          <label
+                            htmlFor="street_address"
+                            className="block text-sm font-medium text-gray-700"
+                          >
                             Service Account Name
                           </label>
                           <input
@@ -157,7 +158,10 @@ export default function ConfigDetail() {
                         </div>
 
                         <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-                          <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+                          <label
+                            htmlFor="city"
+                            className="block text-sm font-medium text-gray-700"
+                          >
                             Path
                           </label>
                           <input
@@ -167,7 +171,8 @@ export default function ConfigDetail() {
                             className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                           />
                         </div>
-                      </div>                    </div>
+                      </div>{' '}
+                    </div>
                     <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                       <button
                         type="button"
@@ -191,7 +196,6 @@ export default function ConfigDetail() {
             </Dialog>
           </Transition.Root>
         </div>
-
       </main>
     </>
   );
