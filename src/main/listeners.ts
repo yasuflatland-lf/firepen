@@ -6,13 +6,12 @@ import run from '../lib/firestore';
 const fs = require('fs-extra');
 
 export default function setUtilsListeners(window: BrowserWindow) {
-  ipcMain.handle(RUN_FIRESTORE_QUERY, async (_event, args) => {
-    const promise = run();
+  ipcMain.handle(RUN_FIRESTORE_QUERY, async (_event, query) => {
+    const promise = run(query);
     promise
-      .then(() => console.log('Command has completed'))
+      .then((value) => console.log(value))
       .catch(console.error);
 
-    console.log(args);
     return 'pong';
   });
 

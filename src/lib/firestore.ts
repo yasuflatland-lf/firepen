@@ -21,13 +21,14 @@ admin.initializeApp({ credential: admin.credential.cert(params) });
 
 const context = {
   db: admin.firestore(),
-  docs: Object,
+  docs: "",
 };
 
-export default async function run(): Promise<void> {
-  const script = new vm.Script(
-    'db.listCollections().then((value) => docs = value);'
-  );
+export default async function run(query: String): Promise<any> {
+  const script = new vm.Script(query);
+  // const script = new vm.Script(
+  //   'db.listCollections().then((value) => docs = value);'
+  // );
   vm.createContext(context);
   script.runInContext(context);
   // ↓↓↓↓↓↓ Write your code ↓↓↓↓↓↓
@@ -37,6 +38,7 @@ export default async function run(): Promise<void> {
   //   .limit(10)
   //   .get();
   // const projects = projectsQuerySnapshot.docs;
-  console.log(context.docs);
   // ↑↑↑↑↑↑ Write your code ↑↑↑↑↑↑
+  // console.log(context.docs);
+  return context.docs;
 }

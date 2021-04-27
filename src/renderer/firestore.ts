@@ -4,8 +4,8 @@ import {
 } from '../constants/events';
 
 export const firestoreRenderer = {
-  runQuery: () => {
-    return ipcRenderer.invoke(RUN_FIRESTORE_QUERY, 'ping').then((result) => {
+  runQuery: (query: String) => {
+    return ipcRenderer.invoke(RUN_FIRESTORE_QUERY, query).then((result) => {
       console.log(result);
     });
   },

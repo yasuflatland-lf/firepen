@@ -7,13 +7,26 @@ import { firestoreRenderer } from '../renderer/firestore';
 class Home extends Component {
   constructor(props: {} | Readonly<{}>) {
     super(props);
-    this.state = { value: '' };
+    this.state = {
+      query: '',
+      out: '',
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChangeQuery = this.handleChangeQuery.bind(this);
+    this.handleChangeOut = this.handleChangeOut.bind(this);
+  }
+
+  handleChangeQuery(event: { target: { value: any; }; }) {
+    this.setState({ query: event.target.value });
+  }
+
+  handleChangeOut(event: { target: { value: any; }; }) {
+    this.setState({ out: event.target.value });
   }
 
   handleSubmit(event: { preventDefault: () => void }) {
-    firestoreRenderer.runQuery();
+    firestoreRenderer.runQuery(this.state.query);
     event.preventDefault();
   }
 
@@ -41,10 +54,11 @@ class Home extends Component {
                             <textarea
                               id="about"
                               name="about"
-                              rows={3}
+                              rows={10}
                               className="shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                               placeholder="Type Firestore Query here"
-                              defaultValue=""
+                              value={ this.state.query }
+                              onChange={this.handleChangeQuery}
                             />
                           </div>
                         </div>
@@ -101,10 +115,11 @@ class Home extends Component {
                             <textarea
                               id="about"
                               name="about"
-                              rows={3}
+                              rows={10}
                               className="shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                               placeholder="The result of query is displayed here."
-                              defaultValue=""
+                              value={ this.state.out }
+                              onChange={this.handleChangeOut}
                             />
                           </div>
                         </div>
