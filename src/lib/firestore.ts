@@ -1,6 +1,8 @@
 import * as admin from 'firebase-admin';
 import * as serviceAccount from '../../firestore-service-account.json';
 
+const vm = require('vm');
+
 // Setup firestore
 const params = {
   type: serviceAccount.type,
@@ -16,15 +18,25 @@ const params = {
 };
 
 admin.initializeApp({ credential: admin.credential.cert(params) });
-const db = admin.firestore();
 
-export default async (): Promise<void> => {
-  // ↓↓↓↓↓↓ Write your code ↓↓↓↓↓↓
-  const projectsQuerySnapshot = await db
-    .collectionGroup('projects')
-    .limit(10)
-    .get();
-  const projects = projectsQuerySnapshot.docs;
-  console.log(projects.length);
-  // ↑↑↑↑↑↑ Write your code ↑↑↑↑↑↑
+const context = {
+  db: admin.firestore(),
+  docs: Object,
 };
+
+export default async function run(): Promise<void> {
+  const script = new vm.Script(
+    'db.listCollections().then((value) => docs = value);'
+  );
+  vm.createContext(context);
+  script.runInContext(context);
+  // ↓↓↓↓↓↓ Write your code ↓↓↓↓↓↓
+  // const docs = await admin.firestore().listCollections();
+  // const projectsQuerySnapshot = await db
+  //   .collectionGroup('projects')
+  //   .limit(10)
+  //   .get();
+  // const projects = projectsQuerySnapshot.docs;
+  console.log(context.docs);
+  // ↑↑↑↑↑↑ Write your code ↑↑↑↑↑↑
+}
